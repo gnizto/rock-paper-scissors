@@ -65,7 +65,8 @@ function game() {
 
   for (let round = 1; round <= 5; round++){
     do {
-      var playerSelection = prompt(`(Round ${round})\nPick one [rock, paper, scissors]:`).toString();
+      var playerSelection = prompt(`(Round ${round} | Score: ${score.player})\
+                                    \nPick one [rock, paper, scissors]:`).toString();
     } while (!choicesArray.includes(playerSelection.toLowerCase()));
     
     let resultRound = playRound(playerSelection, getComputerChoice()); 
@@ -78,7 +79,9 @@ function game() {
   let finalResult = score.player > score.computer ? 'You won!' :
                     score.computer > score.player ? 'You lost!' :
                     'It\'s a draw!';
-  console.log(finalResult + ` You made ${score.player} vs ${score.computer}!`);
+  let message = finalResult + ` You made ${score.player} vs ${score.computer}!`;
+  console.log(message);
+  alert(message);
 }
 
 game();
